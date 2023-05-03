@@ -18,12 +18,11 @@ function showBands(bands){
 
 //Show html in browser
 document.querySelector('#bands').innerHTML = html;
-//console.log(html);// will print in the console
 }
 async function addBand(){
     //Attach event listeners to form
 
-    document.getElementById('bandform').addEventListener('submit' ,async(event)=>{
+    document.getElementById('bandForm').addEventListener('submit' ,async(event)=>{
         //Prevent default behavior of form 
         event.preventDefault();
 
@@ -32,16 +31,17 @@ async function addBand(){
         const genre = document.getElementById('bandGenre').value;
 
         //Create object to send through POST request
-        const band = {
+        const band= {
             name: name,
             genre: genre
-
+            
         };
+        console.log(band)
         // The POST request
         const response = await fetch('http://localhost:3000/bands',{
-            method: 'POST',
-            header: {
-               ' Content-Type': 'applicationjson'
+            method : 'POST',
+            headers: {
+               'Content-Type': 'application/json'
 
             },
             body: JSON.stringify(band)
@@ -52,8 +52,13 @@ async function addBand(){
         console.log(result);
         //Show bands again
         getAllBands();
+
+        //Reset the form
+        
     });
 }
 getAllBands();
 addBand();
+
+
 
