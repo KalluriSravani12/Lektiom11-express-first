@@ -41,7 +41,7 @@ async function addBand(){
         const response = await fetch('http://localhost:3000/bands',{
             method : 'POST',
             headers: {
-               'Content-Type': 'application/json'
+               'Content-Type': ' application/json'
 
             },
             body: JSON.stringify(band)
@@ -54,7 +54,7 @@ async function addBand(){
         getAllBands();
 
         //Reset the form
-        
+        document.getElementById('bandForm').reset();
     });
 }
 getAllBands();
