@@ -35,5 +35,21 @@ app.get ('/bands/:id',(req,res)=>{
     res.json(band || {error: 'No such band'});
 });
 
+//Create new band
+app.post('/bands',(req,res)=>{
+    // Logout to the console
+    console.log(req.body);
+
+    //Get the name and genre from request body
+    const name = req. body.name;
+    const genre = req.body.genre;
+
+    const statement = db.prepare('INSERT INTO bands (name,genre) VALUES (? , ?)');
+    const result = statement.run(name, genre);
+    //Return result
+    res.json(result);
+
+});
+
 /* Start the app*/
 app.listen(3000, () => {console.log('Serevr started an port 3000')});

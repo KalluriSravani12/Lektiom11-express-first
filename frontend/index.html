@@ -11,5 +11,15 @@
    <h1>Bands</h1>
    <p>This code come from the frontend to show you bands.</p>
    <div id="bands"></div>
+
+   <h2>Add new band</h2>
+   <form acion="http://localhost:3000/bands" id ="bandform" method = "POST">
+        <label for = "bandName">Band Name</label>
+        <input type = "text" name ="name" id ="bandName">
+        <label for = "bandGenre">Band Genre</label>
+        <input type = "text" name ="genre" id ="bandGenre">
+        <input type = "submit" value ="Submit">
+   </form>
+    
 </body>
 </html>
